@@ -1,0 +1,12 @@
+.message {
+  display: flex;
+  color: white;
+}
+
+.owner {
+  justify-content: right;
+}
+
+.friend {
+  justify-content: left;
+}
