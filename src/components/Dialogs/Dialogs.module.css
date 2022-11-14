@@ -16,3 +16,7 @@
   flex-direction: column;
   padding: 10px;
 }
+
+.sendMessageContainer {
+  margin-top: 50px;
+}
