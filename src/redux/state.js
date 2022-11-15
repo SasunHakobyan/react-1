@@ -32,8 +32,20 @@ const state = {
   }
 };
 
-export let updateMessageText = (text) => {
-  state.messages.newMessageText = text;
+export let addMessage = () => {
+  let newMessage = {
+    id: 1,
+    owner: true,
+    message: state.messagesPage.newMessageText
+  };
+
+  state.messagesPage.messages.push(newMessage);
+  state.messagesPage.newMessageText = "";
+  rerenderEntireTree(state);
+}
+
+export let updateNewMessageText = (text) => {
+  state.messagesPage.newMessageText = text;
   rerenderEntireTree(state);
 }
 
