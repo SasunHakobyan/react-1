@@ -1,9 +1,12 @@
+import { rerenderEntireTree } from "../render";
+
 const state = {
   profilePage: {
     posts: [
       {id: 1, message: 'How are you', likeCount: 2},
       {id: 2, message: 'Its my first posts', likeCount: 134}
     ],
+    newPostText: 'it-react.com'
   },
   messagesPage: {
     dialogs: [
@@ -17,6 +20,7 @@ const state = {
       {id: 1, message: 'How are you', owner: true},
       {id: 1, message: 'Where you goin', owner: false},
     ],
+    newMessageText: 'send your message'
   },
   navBar: {
     friends: [
@@ -27,5 +31,28 @@ const state = {
     ],
   }
 };
+
+export let updateMessageText = (text) => {
+  state.messages.newMessageText = text;
+  rerenderEntireTree(state);
+}
+
+export let addPost = () => {
+  
+  let newPost = {
+    id: 5,
+    message: state.profilePage.newPostText,
+    likeCount: 0
+  };
+
+  state.profilePage.posts.push(newPost);
+  state.profilePage.newPostText = '';
+  rerenderEntireTree(state);
+}
+
+export let updateNewPostText = (newText) => {
+  state.profilePage.newPostText = newText;
+  rerenderEntireTree(state);
+}
 
 export default state;
