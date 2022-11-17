@@ -1,21 +1,21 @@
 .nav {
-  grid-area: n;
-  background-color: burlywood;
+    grid-area: n;
+    background-color: burlywood;
 }
 
 .item {
-  color: white;
+    color: white;
 }
 
 .active {
-  color: gold;
+    color: gold;
 }
 
 .friendGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 .friendsContainer h3 {
-  text-align: center;
+    text-align: center;
 }

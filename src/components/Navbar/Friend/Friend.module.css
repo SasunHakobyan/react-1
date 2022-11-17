@@ -1,12 +1,12 @@
 .friendImg > img {
-  margin: 5px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+    margin: 5px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
 }
 
 .friendsContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

@@ -1,15 +1,14 @@
 import MyPosts from './MyPosts/MyPosts';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 
-import classes from './Profile.module.css';
-
 const Profile = (props) => {
-  return (
-    <div>
-      <ProfileInfo/>
-      <MyPosts newPostText={props.profilePage.newPostText} dispatch={props.dispatch} posts={props.profilePage.posts} />
-    </div>
-  );
+    return (
+        <div>
+            <ProfileInfo/>
+            <MyPosts newPostText={props.profilePage.newPostText} dispatch={props.dispatch}
+                     posts={props.profilePage.posts}/>
+        </div>
+    );
 }
 
 export default Profile;
