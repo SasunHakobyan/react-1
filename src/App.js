@@ -13,8 +13,8 @@ import DialogsContainer from "./components/Dialogs/DialogsContainer";
 function App(props) {
     return (
         <BrowserRouter>
+            <Header/>
             <div className='app-wrapper'>
-                <Header/>
                 <Navbar state={props.state.navbar} />
                 <div className='app-wrapper-content'>
                     <Routes>

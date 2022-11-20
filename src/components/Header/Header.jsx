@@ -4,7 +4,7 @@ const Header = () => {
     return (
         <header className={classes.header}>
             <img
-                src='https://images.fastcompany.net/image/upload/w_1280,f_auto,q_auto,fl_lossy/w_596,c_limit,q_auto:best,f_auto/fc/3034007-inline-i-applelogo.jpg'/>
+                src='https://img.favpng.com/3/25/19/computer-network-global-network-computer-icons-logo-png-favpng-uiupzDyGz4Ks1aPpLdBEF8gwz.jpg'/>
         </header>
     );
 }
