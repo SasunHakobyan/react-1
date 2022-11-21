@@ -7,11 +7,11 @@ import React from 'react';
 const Dialogs = (props) => {
 
     let dialogsElements = props.dialogsPage.dialogs.map(dialog => {
-        return <DialogItem name={dialog.name} id={dialog.id} imgUrl={dialog.img_url}/>
+        return <DialogItem name={dialog.name} key={dialog.id} imgUrl={dialog.img_url}/>
     });
 
     let messagesElements = props.dialogsPage.messages.map(message => {
-        return <Message isOwner={message.owner} message={message.message}/>
+        return <Message key={message.id} isOwner={message.owner} message={message.message}/>
     });
 
     let messageRef = React.createRef();

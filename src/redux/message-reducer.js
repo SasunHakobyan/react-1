@@ -21,33 +21,33 @@ let initialState = {
     ],
     messages: [
         {id: 1, message: 'Hi', owner: false},
-        {id: 1, message: 'Hi', owner: true},
-        {id: 1, message: 'How are you', owner: true},
-        {id: 1, message: 'Where you going', owner: false},
+        {id: 2, message: 'Hi', owner: true},
+        {id: 3, message: 'How are you', owner: true},
+        {id: 4, message: 'Where you going', owner: false},
     ],
     newMessageText: 'send your message'
 };
 
 const messageReducer = (state = initialState, action) => {
     switch (action.type) {
-        case ADD_MESSAGE: {
+        case ADD_MESSAGE:
             let newMessage = {
-                id: 1,
+                id: state.messages.length+1,
                 owner: true,
                 message: state.newMessageText
             };
 
-            let stateCopy = {...state};
-            stateCopy.messages.push(newMessage);
-            stateCopy.newMessageText = "";
-            return stateCopy;
-        }
+            return {
+                ...state,
+                newMessageText: '',
+                messages: [...state.messages, newMessage],
+            }
 
-        case UPDATE_NEW_MESSAGE_TEXT: {
-            let stateCopy = {...state};
-            stateCopy.newMessageText = action.text;
-            return stateCopy;
-        }
+        case UPDATE_NEW_MESSAGE_TEXT:
+            return {
+                ...state,
+                newMessageText: action.text
+            };
 
         default:
             return state;
