@@ -26,7 +26,7 @@ const Users = (props) => {
                             <span>
                                 <div>
                                     <NavLink to={`/profile/${user.id}`}>
-                                        <img onClick={() => props.setUserIdForProfile(user.id)} src={user.photos.small ? user.photos.small : userPhoto}
+                                        <img src={user.photos.small ? user.photos.small : userPhoto}
                                              className={classes.photo}/>
                                     </NavLink>
                                 </div>

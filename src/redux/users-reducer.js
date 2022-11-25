@@ -12,7 +12,6 @@ let initialState = {
     totalUsersCount: 0,
     currentPage: 1,
     isFetching: false,
-    userIdForProfile: 10
 };
 
 function usersReducer(state = initialState, action) {
@@ -59,11 +58,6 @@ function usersReducer(state = initialState, action) {
                 ...state,
                 isFetching: action.isFetching
             }
-        case SET_USER_ID_FOR_PROFILE:
-            return {
-                ...state,
-                userIdForProfile: action.userId
-            }
         default:
             return state;
     }
@@ -75,6 +69,5 @@ export const setUsers = (users) => ({type: SET_USERS, users: users});
 export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage: currentPage});
 export const setUsersTotalCount = (totalCount) => ({type: SET_TOTAL_COUNT, totalCount});
 export const setIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching});
-export const setUserIdForProfile = (userId) => ({type: SET_USER_ID_FOR_PROFILE, userId});
 
 export default usersReducer;

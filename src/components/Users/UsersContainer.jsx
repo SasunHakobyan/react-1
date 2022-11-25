@@ -6,8 +6,7 @@ import {
     setIsFetching,
     setUsers,
     setUsersTotalCount,
-    unFollow,
-    setUserIdForProfile
+    unFollow
 } from "../../redux/users-reducer";
 import axios from "axios";
 import Users from "./Users";
@@ -49,8 +48,7 @@ class UsersContainer extends React.Component {
                     onPageChanged={this.onPageChange}
                     users={this.props.users}
                     follow={this.props.follow}
-                    unfollow={this.props.unfollow}
-                    setUserIdForProfile={this.props.setUserIdForProfile}/>
+                    unfollow={this.props.unfollow}/>
             </>
         );
     }
@@ -74,6 +72,5 @@ export default connect(mapStateToProps, {
     setCurrentPage,
     setUsersTotalCount,
     setIsFetching,
-    setUserIdForProfile
 
 })(UsersContainer);
