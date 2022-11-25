@@ -10,12 +10,17 @@ import {useParams} from "react-router-dom";
 const ProfileRouteParams = (props) => {
     const routeParams = useParams();
 
+    if (!routeParams.userId) {
+        routeParams.userId = 2;
+    }
+
     return <ProfileContainer {...props} routeParams={routeParams} />
 }
 
 class ProfileContainer extends Component {
 
     componentDidMount() {
+
         axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${this.props.routeParams.userId}`)
             .then(response => {
                 this.props.setUserProfile(response.data);
