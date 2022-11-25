@@ -13,42 +13,12 @@ const Users = (props) => {
         pages.push(i);
     }
 
-    const unfollowOnClick = (userId) => {
-        axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`, {
-            withCredentials: true,
-            headers: {
-                "API-KEY": "8044ee75-356b-458a-aa91-ed005d7216d1"
-            }
-        }).then((response) => {
-            if (response.data.resultCode === 0) {
-                props.unFollow(userId);
-            }
-        }).catch(err => {
-            console.log(err);
-        })
-    }
-
-    const followOnClick = (userId) => {
-        axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`, {}, {
-            withCredentials: true,
-            headers: {
-                "API-KEY": "8044ee75-356b-458a-aa91-ed005d7216d1"
-            }
-        }).then(response => {
-            console.log(response);
-            if (response.data.resultCode === 0) {
-                props.follow(userId);
-            }
-        }).catch(err => {
-            console.log(err);
-        });
-    }
-
     return (
         <div>
             <div>
                 {pages.map(page => {
-                    return <span className={props.currentPage === page ? classes.selectedPage : ''} onClick={() => props.onPageChanged(page)}>{page}</span>
+                    return <span className={props.currentPage === page ? classes.selectedPage : ''}
+                                 onClick={() => props.onPageChanged(page)}>{page}</span>
                 })}
             </div>
             {
@@ -63,8 +33,39 @@ const Users = (props) => {
                                     </NavLink>
                                 </div>
                                 <div>
-                                    {user.followed ? <button onClick={() => unfollowOnClick(user.id)}>Unfollow</button> :
-                                        <button onClick={() => followOnClick(user.id)}>Follow</button>}
+                                    {user.followed ? <button onClick={() => {
+
+                                            axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, {
+                                                withCredentials: true,
+                                                headers: {
+                                                    "API-KEY": "8044ee75-356b-458a-aa91-ed005d7216d1"
+                                                }
+                                            }).then((response) => {
+                                                if (response.data.resultCode === 0) {
+                                                    props.unFollow(user.id);
+                                                }
+                                            }).catch(err => {
+                                                console.log(err);
+                                            })
+
+                                        }
+                                    }>Unfollow</button> :
+                                        <button onClick={() => {
+
+                                            axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, {}, {
+                                                withCredentials: true,
+                                                headers: {
+                                                    "API-KEY": "8044ee75-356b-458a-aa91-ed005d7216d1"
+                                                }
+                                            }).then(response => {
+                                                if (response.data.resultCode === 0) {
+                                                    props.follow(user.id);
+                                                }
+                                            }).catch(err => {
+                                                console.log(err);
+                                            });
+
+                                        }}>Follow</button>}
                                 </div>
                             </span>
                             <span>
