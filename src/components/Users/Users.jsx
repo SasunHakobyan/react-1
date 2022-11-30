@@ -34,13 +34,17 @@ const Users = (props) => {
                                     </NavLink>
                                 </div>
                                 <div>
-                                    {user.followed ? <button onClick={() => {
+                                    {user.followed ? <button disabled={props.isFollowingInProgress.some(id => id === user.id)} onClick={() => {
+
+                                            props.toggleFollowingProgress(true, user.id);
 
                                             usersAPI.unfollow(user.id)
                                                 .then(data => {
                                                     if (data.resultCode === 0) {
                                                         props.unFollow(user.id);
                                                     }
+
+                                                    props.toggleFollowingProgress(false, user.id);
                                                 })
                                                 .catch(err => {
                                                     console.log(err);
@@ -48,13 +52,17 @@ const Users = (props) => {
 
                                         }
                                     }>Unfollow</button> :
-                                        <button onClick={() => {
+                                        <button disabled={props.isFollowingInProgress.some(id => id === user.id)} onClick={() => {
+
+                                            props.toggleFollowingProgress(true, user.id);
 
                                             usersAPI.follow(user.id)
                                                 .then(data => {
                                                     if (data.resultCode === 0) {
                                                         props.follow(user.id);
                                                     }
+
+                                                    props.toggleFollowingProgress(false, user.id);
                                                 })
                                                 .catch(err => {
                                                     console.log(err);
