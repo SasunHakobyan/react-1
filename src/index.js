@@ -12,7 +12,7 @@ window.store = store;
 
 root.render(<React.StrictMode>
     <Provider store={store}>
-        <App state={store.getState()} />
+        <App state={store.getState()}/>
     </Provider>
 </React.StrictMode>);
 

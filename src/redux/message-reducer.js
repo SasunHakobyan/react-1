@@ -32,7 +32,7 @@ const messageReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_MESSAGE:
             let newMessage = {
-                id: state.messages.length+1,
+                id: state.messages.length + 1,
                 owner: true,
                 message: state.newMessageText
             };

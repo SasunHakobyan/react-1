@@ -3,7 +3,8 @@ import Friend from './Friend/Friend';
 import classes from './Navbar.module.css';
 
 const Navbar = (props) => {
-    let friends = props.state.friends.map(friendObj => <Friend key={friendObj.id} imgUrl={friendObj.imgUrl} name={friendObj.name}/>);
+    let friends = props.state.friends.map(friendObj => <Friend key={friendObj.id} imgUrl={friendObj.imgUrl}
+                                                               name={friendObj.name}/>);
 
     return (
         <nav className={classes.nav}>

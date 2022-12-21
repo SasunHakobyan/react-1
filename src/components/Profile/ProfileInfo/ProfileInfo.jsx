@@ -4,7 +4,7 @@ const ProfileInfo = (props) => {
     return (
         <div>
             <div>
-                <img src={props.profileData.photos?.large} />
+                <img src={props.profileData.photos?.large}/>
             </div>
             <div className={classes.descriptionBlock}>
                 <h4>{props.profileData.fullName}</h4>

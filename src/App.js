@@ -11,23 +11,27 @@ import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
+import Login from "./components/Login/Login";
 
 function App(props) {
     return (
         <BrowserRouter>
-            <HeaderContainer />
+            <HeaderContainer/>
             <div className='app-wrapper'>
-                <Navbar state={props.state.navbar} />
+                <Navbar state={props.state.navbar}/>
                 <div className='app-wrapper-content'>
                     <Routes>
                         <Route path='/dialogs/*'
                                element={<DialogsContainer/>}/>
                         <Route path='/profile/:userId'
-                               element={<ProfileContainer />}/>
+                               element={<ProfileContainer/>}/>
                         <Route path='/profile/'
-                               element={<ProfileContainer />}/>
+                               element={<ProfileContainer/>}/>
                         <Route path='/users'
-                               element={<UsersContainer />}/>
+                               element={<UsersContainer/>}/>
+
+                        <Route path='/login'
+                               element={<Login />}/>
 
                         <Route path='/news' element={<News/>}/>
                         <Route path='/music' element={<Music/>}/>

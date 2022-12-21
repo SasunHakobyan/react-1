@@ -3,10 +3,8 @@ import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 
 import {connect} from "react-redux";
-import axios from "axios";
-import {setUserProfile} from "../../redux/profile-reducer";
+import {getProfile} from "../../redux/profile-reducer";
 import {useParams} from "react-router-dom";
-import {usersAPI} from "../../api/api";
 
 const ProfileRouteParams = (props) => {
     const routeParams = useParams();
@@ -15,24 +13,20 @@ const ProfileRouteParams = (props) => {
         routeParams.userId = 2;
     }
 
-    return <ProfileContainer {...props} routeParams={routeParams} />
+    return <ProfileContainer {...props} routeParams={routeParams}/>
 }
 
 class ProfileContainer extends Component {
 
     componentDidMount() {
-
-        usersAPI.getProfile(this.props.routeParams.userId)
-            .then(data => {
-                this.props.setUserProfile(data);
-            });
+        this.props.getProfile(this.props.routeParams.userId);
     }
 
     render() {
         return (
             <div>
-                <ProfileInfo profileData={this.props.profileData}  />
-                <MyPostsContainer />
+                <ProfileInfo profileData={this.props.profileData}/>
+                <MyPostsContainer/>
             </div>
         )
     }
@@ -46,5 +40,5 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, {
-    setUserProfile
+    getProfile
 })(ProfileRouteParams);
